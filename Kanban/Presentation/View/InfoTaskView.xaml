@@ -1,0 +1,50 @@
+﻿<Window x:Class="Presentation.View.InfoTaskView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation.View"
+        mc:Ignorable="d"
+        Title="InfoTaskView" Height="520" Width="450">
+    <Grid Margin="0,0,0.2,6.4">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="292"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+
+        </Grid.RowDefinitions>
+
+        <Button Content="Back" HorizontalAlignment="Left"  Width="50" Grid.Column="0" Grid.Row="0" Click="BackToBoard_click"/>
+
+
+        <Label Content="ID:" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Width="76" Height="26"/>
+        <Label Content="Assignee:" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" Width="76" Height="26"/>
+        <Label Content="Column: " HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Width="76" Height="26" Margin="5,0,0,0"/>
+        <Label Content="Title:" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="3" VerticalAlignment="Top" Width="76" Height="26"/>
+        <Label Content="Description:" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="4" VerticalAlignment="Top" Width="76" Height="26"/>
+        <Label Content="Due Date:" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="5" VerticalAlignment="Top" Width="76" Height="26" Margin="10,0,0,0"/>
+        <Label Content="Creation Time:" HorizontalAlignment="Left" Grid.Row="6" VerticalAlignment="Top" Width="92" Height="26" RenderTransformOrigin="5.5,-3.269"/>
+        <Label Content="{Binding Path=Message}"  Foreground="Red" Grid.Column="0" Grid.Row="6" Margin="4,33.6,10.2,-32.8" Grid.ColumnSpan="3"/>
+
+        <TextBox Text="{Binding Path=Task.Id, Mode=OneWay}" IsEnabled="False" HorizontalAlignment="Left" Height="29" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Margin="40,2,0,0"/>
+        <TextBox Text="{Binding Path=DemoEmailAssignee, Mode=TwoWay}" IsEnabled="{Binding Path=Enable}" HorizontalAlignment="Left" Height="29" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="261"/>
+        <TextBox Text="{Binding Path=Task.ColumnOrdinal, Mode=TwoWay}" IsEnabled="False" HorizontalAlignment="Left" Height="29" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Margin="86,0,0,0"/>
+        <TextBox Text="{Binding Path=DemoTitle, Mode=TwoWay}" IsEnabled="{Binding Path=Enable, Mode=OneWay}" HorizontalAlignment="Left" Height="29" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="261"/>
+        <TextBox Text="{Binding Path=DemoDescription, Mode=TwoWay}" IsEnabled="{Binding Path=Enable, Mode=OneWay}" HorizontalAlignment="Left" Height="156" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="261"/>
+        <TextBox Text="{Binding Path=DemoDueDate, Mode=TwoWay}" IsEnabled="{Binding Path=Enable, Mode=OneWay}" HorizontalAlignment="Left" Height="29" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" Grid.Column="1"/>
+        <TextBox Text="{Binding Path=Task.CreationTime, Mode=OneWay}" IsEnabled="False" HorizontalAlignment="Left" Height="29" Grid.Column="1" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" Width="261"/>
+        <Button Content="Save Changes" IsEnabled="{Binding Path=Enable}" HorizontalAlignment="Left"  Grid.Row="6" Click="SaveChanges_click" Grid.Column="1" Margin="176,75.6,0,-62.8" Width="85" RenderTransformOrigin="-0.088,-0.348"/>
+
+
+    </Grid>
+</Window>
